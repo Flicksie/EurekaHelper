@@ -20,7 +20,7 @@ namespace EurekaHelper.System
             var dtrBarTitle = "Eureka Helper";
             try
             {
-                _dtrBarEntry = DalamudApi.DtrBar.Get(dtrBarTitle);
+                _dtrBarEntry = (DtrBarEntry)DalamudApi.DtrBar.Get(dtrBarTitle);
             }
             catch (ArgumentException ex)
             {
@@ -29,7 +29,7 @@ namespace EurekaHelper.System
                     DalamudApi.Log.Error(ex, $"Failed to acquire DtrBarEntry {dtrBarTitle}, trying {dtrBarTitle}{i}");
                     try
                     {
-                        _dtrBarEntry = DalamudApi.DtrBar.Get($"{dtrBarTitle}{i}");
+                        _dtrBarEntry = (DtrBarEntry)DalamudApi.DtrBar.Get($"{dtrBarTitle}{i}");
                     }
                     catch (ArgumentException)
                     {
